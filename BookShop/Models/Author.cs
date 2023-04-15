@@ -4,6 +4,7 @@ namespace BookShop.Models
 {
     public class Author
     {
+        [Key]
         [Required]
         public int Id { get; set; }
         [Required]

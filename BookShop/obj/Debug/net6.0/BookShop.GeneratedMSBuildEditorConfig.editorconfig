@@ -32,6 +32,14 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aG9yXFNob3cuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Dot.NET/BookShop/BookShop/Views/Book/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Dot.NET/BookShop/BookShop/Views/Book/Show.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va1xTaG93LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Dot.NET/BookShop/BookShop/Views/Error/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXJyb3JcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 

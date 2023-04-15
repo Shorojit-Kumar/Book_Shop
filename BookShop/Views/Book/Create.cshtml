@@ -1,0 +1,57 @@
+﻿
+@model Book
+@{
+    ViewData["Title"] = "Add Books";
+}
+
+
+<div class="w-100 d-flex justify-content-center align-items-center">
+
+    <form method="post" enctype="multipart/form-data" class="w-50 border-1">
+        <div class="row text-start">
+            <h2 class="text-white">Add Author</h2>
+        </div>
+        <div asp-validation-summary="All"></div>
+
+        <div class="mt-2 row">
+            <label asp-for="Name"></label>
+            <input placeholder="Enter name" type="text" asp-for="Name" class="form-control" />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+
+        <div class="mt-2 row">
+            <label asp-for="Title"></label>
+            <input placeholder="Enter name" type="text" asp-for="Title" class="form-control" />
+            <span asp-validation-for="Title" class="text-danger"></span>
+        </div>
+        <div class="mt-2 row">
+            <label asp-for="AuthorId"></label>
+            <select asp-for="AuthorId" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                <option disabled>Select</option>
+                @foreach(var op in ViewBag.authors)
+                {
+                    <option value="@op.Id">@op.Name</option>
+                }
+                
+            </select>
+        </div>
+       
+        <div class="mt-2 row">
+            <label>Image</label>
+            <input name="ImageFile" class="form-control" placeholder="Select book image" type="file" />
+        </div>
+
+        <div class="row p-3">
+            <button type="submit" class="btn btn-success m-1" style="width:150px">Create</button>
+            <a class="btn btn-secondary m-1" style="width:150px" asp-area="" asp-controller="Book" asp-action="Show">
+                Back
+            </a>
+        </div>
+
+    </form>
+
+</div>
+
+@section Scripts{
+    <partial name="_ValidationScriptsPartial"></partial>
+}
