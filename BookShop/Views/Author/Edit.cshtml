@@ -1,0 +1,55 @@
+﻿@model Author
+@{
+    ViewData["Title"] = "Edit";
+}
+
+
+<div class="w-100 d-flex justify-content-center align-items-center">
+
+    <form method="post" enctype="multipart/form-data" class="w-50 border-1">
+        <div class="row text-start">
+            <h2 class="text-white">Create Author</h2>
+        </div>
+        <div asp-validation-summary="All"></div>
+        <div class="mt-2 row">
+            <label asp-for="Name"></label>
+            <input placeholder="Enter name" type="text" asp-for="Name" class="form-control" />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+
+        <div class="mt-2 row">
+            <label asp-for="Email">Email</label>
+            <input asp-for="Email" class="form-control" placeholder="Enter your email" type="email" />
+            <span asp-validation-for="Email" class="text-danger"></span>
+
+        </div>
+        <div class="mt-2 row">
+            <label asp-for="Address">Address</label>
+            <textarea asp-for="Address" class="form-control" placeholder="Enter your address"></textarea>
+            <span asp-validation-for="Address" class="text-danger"></span>
+
+        </div>
+        <div class="mt-2 row">
+            <label asp-for="Biography">Biograph</label>
+            <textarea asp-for="Biography" class="form-control" placeholder="Enter your Bio"></textarea>
+            <span asp-validation-for="Biography" class="text-danger"></span>
+
+        </div>
+        <div class="mt-2 row">
+            <label>Image</label>
+            <input name="ImageFile" class="form-control" placeholder="Select your image" type="file" />
+
+        </div>
+        <div class="row p-3">
+            <button type="submit" class="btn btn-info m-1" style="width:150px">Update</button>
+            <a class="btn btn-secondary m-1" style="width:150px" asp-area="" asp-controller="Author" asp-action="Show">
+                Back
+            </a>
+        </div>
+    </form>
+
+</div>
+
+@section Scripts{
+    <partial name="_ValidationScriptsPartial"></partial>
+}

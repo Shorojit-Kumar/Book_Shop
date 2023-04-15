@@ -42,7 +42,7 @@ namespace BookShop.Controllers
                 }
                 catch(Exception ex)
                 {
-                    ViewBag.message = "501 Internal Server Error";
+                    TempData["message"] = "501 Internal Server Error";
                     return RedirectToAction("Index","Error");
                 }
 
@@ -69,12 +69,98 @@ namespace BookShop.Controllers
 
             if (author != null)
             {
-                _db.RemoveRange(author.BookList);
-                _db.Remove(author);
-                _db.SaveChanges();
+                try
+                {
+                    var dir = Directory.GetCurrentDirectory();
+                    foreach (var book in author.BookList)
+                    {
+                        // Delete book image
+                        var fullPath1 = Path.Combine(dir, "wwwroot/" + book.BookImageUrl);
+                        if (System.IO.File.Exists(fullPath1))
+                        {
+                            System.IO.File.Delete(fullPath1);
+                        }
+                    }
+
+                    // Delete author image
+                    string fullPath = Path.Combine(dir, "wwwroot/" + author.AuthorImageURL);
+                    if (System.IO.File.Exists(fullPath))
+                    {
+                        System.IO.File.Delete(fullPath);
+                    }
+
+                    _db.RemoveRange(author.BookList);
+                    _db.Remove(author);
+                    _db.SaveChanges();
+                }
+                catch (Exception ex)
+                {
+                    TempData["message"] = "501 Internal Server Error";
+                    return RedirectToAction("Index", "Error");
+                }
             }
+
             return RedirectToAction("Show");
         }
+
+        public IActionResult Edit(int Id)
+        {
+            var author = _db.Authors.SingleOrDefault(a => a.Id == Id);
+            return View(author);
+        }
+        [HttpPost]
+        public async Task<IActionResult> Edit(Author author, IFormFile ImageFile)
+        {
+            try
+            {
+                var obj = _db.Authors.SingleOrDefault(a => a.Id == author.Id);
+                if (ImageFile == null)
+                {
+                    if (obj != null)
+                    {
+                        author.AuthorImageURL = obj.AuthorImageURL;
+                    }
+                }
+                else if (obj.AuthorImageURL != "/images/Default.jpg")
+                {
+                    //Delete previous Image
+                    string fullPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", author.AuthorImageURL);
+                    if (System.IO.File.Exists(fullPath))
+                    {
+                        System.IO.File.Delete(fullPath);
+                    }
+
+                    //Write new image 
+                    var originalpath = DateTime.Now.Ticks + ImageFile.FileName;
+                    author.AuthorImageURL = "/images/" + originalpath;
+                    var filePath = Path.Combine("wwwroot", "images", originalpath);
+                    using (var stream = new FileStream(filePath, FileMode.Create))
+                    {
+                        await ImageFile.CopyToAsync(stream);
+                        
+                    }
+                }
+                _db.Authors.Update(author);
+                _db.SaveChanges();
+                return RedirectToAction("Show");
+            }
+            catch (FileNotFoundException)
+            {
+                TempData["message"] = "Image file not found.";
+                return RedirectToAction("Index", "Error");
+            }
+            catch (DirectoryNotFoundException)
+            {
+                TempData["message"] = "Image directory not found.";
+                return RedirectToAction("Index", "Error");
+            }
+            catch (Exception ex)
+            {
+                TempData["message"] = "Internal server error.";
+                return RedirectToAction("Index", "Error");
+            }
+        }
+
 
     }
 }
