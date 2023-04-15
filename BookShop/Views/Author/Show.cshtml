@@ -1,0 +1,72 @@
+﻿@{
+    ViewData["Title"] = "Show";
+    
+}
+
+<div class="mt-4">
+</div>
+<div class="row pt-4">
+
+    <div class="col-6">
+        <h4 class="text-primary">Author List</h4>
+
+    </div>
+    <div class="col-6 text-end">
+        <a class="btn btn-primary" asp-area="" asp-controller="Author" asp-action="Create">
+            <i class="bi bi-plus-circle"></i> Create Author
+        </a>
+
+    </div>
+</div>
+
+
+
+<div class="d-flex mt-3">
+
+    @foreach (var author in ViewBag.Authors)
+    {
+
+        <div class="card m-2" style="width: 18rem;">
+            <img src="@author.AuthorImageURL" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">@author.Name</h5>
+                <p class="card-text">@author.Biography</p>
+            </div>
+            <div class="card-body">
+                <a class="btn btn-sm btn-primary" href="@Url.Action("AuthorDetails", "Author")?id=@author.Id">
+                    <i class="bi bi-plus-circle"></i> Details
+                </a>
+                <a class="btn btn-sm btn-info" href="@Url.Action("Edit", "Author")?id=@author.Id">
+                    <i class="bi bi-plus-circle"></i> Edit
+                </a>
+
+                <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal-@author.Id">
+                    Delete
+                </button>
+
+                <div class="modal fade" id="exampleModal-@author.Id" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Delete the @author.Name</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                If you delete this author it will delete all of the books of this author.
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                
+                                <a class="btn btn-sm btn-danger" href="@Url.Action("Delete", "Author")?id=@author.Id">
+                                    <i class="bi bi-plus-circle"></i> Delete
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    }
+</div>
+

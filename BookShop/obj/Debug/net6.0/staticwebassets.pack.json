@@ -13,6 +13,30 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "C:\\Dot.NET\\BookShop\\BookShop\\wwwroot\\images\\6381716308136888221me.jpg",
+      "PackagePath": "staticwebassets\\images\\6381716308136888221me.jpg"
+    },
+    {
+      "Id": "C:\\Dot.NET\\BookShop\\BookShop\\wwwroot\\images\\6381716316820784421me.jpg",
+      "PackagePath": "staticwebassets\\images\\6381716316820784421me.jpg"
+    },
+    {
+      "Id": "C:\\Dot.NET\\BookShop\\BookShop\\wwwroot\\images\\638171632351067808Me.jpg",
+      "PackagePath": "staticwebassets\\images\\638171632351067808Me.jpg"
+    },
+    {
+      "Id": "C:\\Dot.NET\\BookShop\\BookShop\\wwwroot\\images\\638171634139685554Guideline.PNG",
+      "PackagePath": "staticwebassets\\images\\638171634139685554Guideline.PNG"
+    },
+    {
+      "Id": "C:\\Dot.NET\\BookShop\\BookShop\\wwwroot\\images\\6381716954892844561me.jpg",
+      "PackagePath": "staticwebassets\\images\\6381716954892844561me.jpg"
+    },
+    {
+      "Id": "C:\\Dot.NET\\BookShop\\BookShop\\wwwroot\\images\\Default.jpg",
+      "PackagePath": "staticwebassets\\images\\Default.jpg"
+    },
+    {
       "Id": "C:\\Dot.NET\\BookShop\\BookShop\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },
