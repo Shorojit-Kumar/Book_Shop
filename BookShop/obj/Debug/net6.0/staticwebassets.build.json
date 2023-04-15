@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "D3DMXf69/KEyXFba4EwDpBBRSDeKtt49aoVtvGTQ3SQ=",
+  "Hash": "yIXTKZNbnyAumIG8zTh5FxpJgjm8xSJVFxc74mi5hOw=",
   "Source": "BookShop",
   "BasePath": "_content/BookShop",
   "Mode": "Default",
@@ -102,12 +102,12 @@
       "OriginalItemSpec": "wwwroot\\images\\638171920608674913Me.jpg"
     },
     {
-      "Identity": "C:\\Dot.NET\\BookShop\\BookShop\\wwwroot\\images\\6381719206907808291me.jpg",
+      "Identity": "C:\\Dot.NET\\BookShop\\BookShop\\wwwroot\\images\\6381719237530996011me.jpg",
       "SourceId": "BookShop",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Dot.NET\\BookShop\\BookShop\\wwwroot\\",
       "BasePath": "_content/BookShop",
-      "RelativePath": "images/6381719206907808291me.jpg",
+      "RelativePath": "images/6381719237530996011me.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -116,7 +116,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\6381719206907808291me.jpg"
+      "OriginalItemSpec": "wwwroot\\images\\6381719237530996011me.jpg"
     },
     {
       "Identity": "C:\\Dot.NET\\BookShop\\BookShop\\wwwroot\\images\\Default.jpg",
