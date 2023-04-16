@@ -55,6 +55,7 @@ namespace BookShop.Controllers
         public IActionResult AuthorDetails(int Id)
         {
             var author = _db.Authors.Include(a => a.BookList).FirstOrDefault(a => a.Id == Id);
+
             if(author == null)
             {
                 return RedirectToAction("Index", "Error");

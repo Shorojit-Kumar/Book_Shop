@@ -1,7 +1,6 @@
-﻿
-@model Book
+﻿@model Book
 @{
-    ViewData["Title"] = "Add Books";
+    ViewData["Title"] = "Edit Book";
 }
 
 
@@ -9,10 +8,8 @@
 
     <form method="post" enctype="multipart/form-data" class="w-50 border-1">
         <div class="row text-start">
-            <h2 class="text-white">Add Book</h2>
+            <h2 class="text-white">Edit book</h2>
         </div>
-        <div asp-validation-summary="All"></div>
-
         <div class="mt-2 row">
             <label asp-for="Name"></label>
             <input placeholder="Enter name" type="text" asp-for="Name" class="form-control" />
@@ -33,26 +30,25 @@
             <label asp-for="AuthorId">Author Name</label>
             <select asp-for="AuthorId" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
                 <option disabled>Select</option>
-                @foreach(var op in ViewBag.authors)
+                @foreach (var op in ViewBag.authors)
                 {
                     <option value="@op.Id">@op.Name</option>
                 }
-                
+
             </select>
         </div>
-       
         <div class="mt-2 row">
             <label>Image</label>
-            <input name="ImageFile" class="form-control" placeholder="Select book image" type="file" />
+            <input name="ImageFile" class="form-control" placeholder="Select your image" type="file" />
+
         </div>
 
         <div class="row p-3">
-            <button type="submit" class="btn btn-success m-1" style="width:150px">Create</button>
+            <button type="submit" class="btn btn-info m-1" style="width:150px">Update</button>
             <a class="btn btn-secondary m-1" style="width:150px" asp-area="" asp-controller="Book" asp-action="Show">
                 Back
             </a>
         </div>
-
     </form>
 
 </div>

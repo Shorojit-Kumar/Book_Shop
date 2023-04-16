@@ -15,7 +15,7 @@ namespace BookShop.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            return RedirectToAction("Show","Book");
         }
 
         public IActionResult Privacy()

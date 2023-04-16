@@ -31,6 +31,9 @@
             <div class="card-body">
                 <h5 class="card-title">@book.Name</h5>
                 <p class="card-text">@book.Title</p>
+                <a  href="@Url.Action("AuthorDetails", "Author")?id=@book.AuthorId">
+                    @book.AuthorName
+                </a>
             </div>
 
             <div class="card-body">

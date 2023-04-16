@@ -1,0 +1,49 @@
+﻿
+@{
+    ViewData["Title"] = "Book Details";
+}
+
+
+<div class="row mt-3">
+    <div class="col-2"></div>
+    <div class="col-8">
+         <div class="card">
+
+            <div class="card-header">
+                <img class="col-12" style="width:100%;height:auto;" src="@ViewBag.book.BookImageUrl" alt="" />
+            </div>
+
+            <div class="card-body">
+           
+                <div class="row">
+                    <div class="col-4 "><b>Title :</b></div>
+                    <div class="col-8 ">@ViewBag.book.Title</div>
+                </div>
+                <div class="row">
+                    <div class="col-4 "><b>Author :</b></div>
+                    <div class="col-8 ">
+                        <a href="@Url.Action("AuthorDetails", "Author")?id=@ViewBag.book.AuthorId">
+                            @ViewBag.book.AuthorName
+                        </a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-4 "><b>Description :</b></div>
+                    <div class="col-8 ">@ViewBag.book.Description</div>
+                </div>
+
+            </div>
+            <div class="card-footer">
+
+                <a class="btn btn-sm btn-info" href="@Url.Action("Edit", "Book")?id=@ViewBag.book.Id">
+                     Edit
+                </a>
+                <a class="btn btn-sm btn-danger" href="@Url.Action("Delete", "Book")?id=@ViewBag.book.Id">
+                     Delete
+                </a>
+            </div>
+         </div>
+
+    </div>
+    <div class="col-2"></div>
+</div>

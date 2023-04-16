@@ -1,6 +1,7 @@
 ﻿using BookShop.Data;
 using BookShop.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace BookShop.Controllers
 {
@@ -30,6 +31,11 @@ namespace BookShop.Controllers
                 originalpath = DateTime.Now.Ticks + ImageFile.FileName;
                 book.BookImageUrl = "/images/" + originalpath;
             }
+            if (book.AuthorId != null)
+            {
+                var x = _db.Authors.FirstOrDefault(a => a.Id == book.AuthorId);
+                book.AuthorName = x.Name;
+            }
             if (ModelState.IsValid)
             {
 
@@ -51,6 +57,113 @@ namespace BookShop.Controllers
             }
             return View();
         }
+
+
+
+        public IActionResult BookDetails(int Id)
+        {
+            var book = _db.Books.FirstOrDefault(a => a.Id == Id);
+            if (book == null)
+            {
+                return RedirectToAction("Index", "Error");
+            }
+            ViewBag.book = book;
+            return View();
+        }
+
+
+        public IActionResult Delete(int Id)
+        {
+            var book = _db.Books.SingleOrDefault(a => a.Id == Id);
+
+            if (book != null)
+            {
+                try
+                {
+                    var dir = Directory.GetCurrentDirectory();
+                  
+                    // Delete book image
+                    string fullPath = Path.Combine(dir, "wwwroot/" + book.BookImageUrl);
+                    if (System.IO.File.Exists(fullPath))
+                    {
+                        System.IO.File.Delete(fullPath);
+                    }
+            
+                    _db.Remove(book);
+                    _db.SaveChanges();
+                }
+                catch (Exception ex)
+                {
+                    TempData["message"] = "501 Internal Server Error";
+                    return RedirectToAction("Index", "Error");
+                }
+            }
+
+            return RedirectToAction("Show");
+        }
+
+
+        public IActionResult Edit(int Id)
+        {
+            var book = _db.Books.SingleOrDefault(a => a.Id == Id);
+            ViewBag.authors = _db.Authors.Select(x => new { x.Name, x.Id }).ToList();
+            return View(book);
+        }
+        [HttpPost]
+        public async Task<IActionResult> Edit(Book book, IFormFile ImageFile)
+        {
+            try
+            {
+                var obj = _db.Books.SingleOrDefault(a => a.Id == book.Id);
+                if (ImageFile == null)
+                {
+                    if (obj != null)
+                    {
+                        book.BookImageUrl = obj.BookImageUrl;
+                    }
+                }
+                else if (obj.BookImageUrl != "/images/DefaultBook.jpg")
+                {
+                    //Delete previous Image
+                    string fullPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", book.BookImageUrl);
+                    if (System.IO.File.Exists(fullPath))
+                    {
+                        System.IO.File.Delete(fullPath);
+                    }
+
+                    //Write new image 
+                    var originalpath = DateTime.Now.Ticks + ImageFile.FileName;
+                    book.BookImageUrl = "/images/" + originalpath;
+                    var filePath = Path.Combine("wwwroot", "images", originalpath);
+                    using (var stream = new FileStream(filePath, FileMode.Create))
+                    {
+                        await ImageFile.CopyToAsync(stream);
+
+                    }
+                }
+                _db.Books.Update(book);
+                _db.SaveChanges();
+                return RedirectToAction("Show");
+            }
+            catch (FileNotFoundException)
+            {
+                TempData["message"] = "Image file not found.";
+                return RedirectToAction("Index", "Error");
+            }
+            catch (DirectoryNotFoundException)
+            {
+                TempData["message"] = "Image directory not found.";
+                return RedirectToAction("Index", "Error");
+            }
+            catch (Exception ex)
+            {
+                TempData["message"] = "Internal server error.";
+                return RedirectToAction("Index", "Error");
+            }
+        }
+
+
+
 
     }
 }
