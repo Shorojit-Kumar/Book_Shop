@@ -42,8 +42,12 @@ namespace BookShop.Controllers
                 try
                 {
                     var filePath = Path.Combine("wwwroot/images", originalpath);
-                    var stream = new FileStream(filePath, FileMode.Create);
-                    await ImageFile.CopyToAsync(stream);
+                    using (var stream = new FileStream(filePath, FileMode.Create, FileAccess.Write))
+                    {
+                        await ImageFile.CopyToAsync(stream);
+                    }
+                   
+                    book.CreatedAt = DateTime.Now;
                     _db.Add(book);
                     _db.SaveChanges();
                 }
@@ -74,7 +78,7 @@ namespace BookShop.Controllers
 
         public IActionResult Delete(int Id)
         {
-            var book = _db.Books.SingleOrDefault(a => a.Id == Id);
+            var book = _db.Books.FirstOrDefault(a => a.Id == Id);
 
             if (book != null)
             {
@@ -115,6 +119,16 @@ namespace BookShop.Controllers
             try
             {
                 var obj = _db.Books.SingleOrDefault(a => a.Id == book.Id);
+                if (obj != null)
+                {
+                    book.Title = (book.Title!=null)? book.Title:obj.Title;
+                    book.Description = (book.Description != null)? book.Description : obj.Description;
+                    book.PublishedAt = (book.PublishedAt != null)? book.PublishedAt : obj.PublishedAt;
+                    book.AuthorId = (book.AuthorId != null)? book.AuthorId : obj.AuthorId;
+                    book.AuthorName = (book.AuthorName != null)? book.AuthorName : obj.AuthorName;
+                    book.BookImageUrl = (book.BookImageUrl != null)? book.BookImageUrl : obj.BookImageUrl;
+                    book.CreatedAt = (book.CreatedAt != null)? book.CreatedAt : obj.CreatedAt;
+                }
                 if (ImageFile == null)
                 {
                     if (obj != null)
@@ -161,9 +175,5 @@ namespace BookShop.Controllers
                 return RedirectToAction("Index", "Error");
             }
         }
-
-
-
-
     }
 }

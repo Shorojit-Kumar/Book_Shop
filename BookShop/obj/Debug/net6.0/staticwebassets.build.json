@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "1chbcdO6LV9SXozQnOlquc1O1uV0NHapSsXftDFLfEI=",
+  "Hash": "hY9rawmTVnDFtX0P9YtmOYMghijAo91gh+Pya4GM7nE=",
   "Source": "BookShop",
   "BasePath": "_content/BookShop",
   "Mode": "Default",
@@ -85,12 +85,12 @@
       "OriginalItemSpec": "wwwroot\\favicon.ico"
     },
     {
-      "Identity": "C:\\Dot.NET\\BookShop\\BookShop\\wwwroot\\images\\638172808358654937Me.jpg",
+      "Identity": "C:\\Dot.NET\\BookShop\\BookShop\\wwwroot\\images\\638173364524085238Rabindraanath.jpg",
       "SourceId": "BookShop",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Dot.NET\\BookShop\\BookShop\\wwwroot\\",
       "BasePath": "_content/BookShop",
-      "RelativePath": "images/638172808358654937Me.jpg",
+      "RelativePath": "images/638173364524085238Rabindraanath.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -99,15 +99,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\638172808358654937Me.jpg"
+      "OriginalItemSpec": "wwwroot\\images\\638173364524085238Rabindraanath.jpg"
     },
     {
-      "Identity": "C:\\Dot.NET\\BookShop\\BookShop\\wwwroot\\images\\6381728084664630551me.jpg",
+      "Identity": "C:\\Dot.NET\\BookShop\\BookShop\\wwwroot\\images\\638173364908776641Me.jpg",
       "SourceId": "BookShop",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Dot.NET\\BookShop\\BookShop\\wwwroot\\",
       "BasePath": "_content/BookShop",
-      "RelativePath": "images/6381728084664630551me.jpg",
+      "RelativePath": "images/638173364908776641Me.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -116,15 +116,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\6381728084664630551me.jpg"
+      "OriginalItemSpec": "wwwroot\\images\\638173364908776641Me.jpg"
     },
     {
-      "Identity": "C:\\Dot.NET\\BookShop\\BookShop\\wwwroot\\images\\638172820443201325Signature.JPG",
+      "Identity": "C:\\Dot.NET\\BookShop\\BookShop\\wwwroot\\images\\638173461159422941Gitanjali_11_title_page.jpg",
       "SourceId": "BookShop",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Dot.NET\\BookShop\\BookShop\\wwwroot\\",
       "BasePath": "_content/BookShop",
-      "RelativePath": "images/638172820443201325Signature.JPG",
+      "RelativePath": "images/638173461159422941Gitanjali_11_title_page.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -133,24 +133,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\638172820443201325Signature.JPG"
-    },
-    {
-      "Identity": "C:\\Dot.NET\\BookShop\\BookShop\\wwwroot\\images\\638172820796542255Signature.JPG",
-      "SourceId": "BookShop",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Dot.NET\\BookShop\\BookShop\\wwwroot\\",
-      "BasePath": "_content/BookShop",
-      "RelativePath": "images/638172820796542255Signature.JPG",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\638172820796542255Signature.JPG"
+      "OriginalItemSpec": "wwwroot\\images\\638173461159422941Gitanjali_11_title_page.jpg"
     },
     {
       "Identity": "C:\\Dot.NET\\BookShop\\BookShop\\wwwroot\\images\\Default.jpg",

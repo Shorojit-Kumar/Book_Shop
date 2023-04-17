@@ -29,8 +29,9 @@
         <div class="card m-2" style="width: 18rem;">
             <img src="@book.BookImageUrl" class="card-img-top" alt="...">
             <div class="card-body">
-                <h5 class="card-title">@book.Name</h5>
-                <p class="card-text">@book.Title</p>
+                <h5 class="card-title">@book.Title</h5>
+                <p class="card-text">@book.Description</p>
+                <p class="card-text">@book.PublishedAt</p>
                 <a  href="@Url.Action("AuthorDetails", "Author")?id=@book.AuthorId">
                     @book.AuthorName
                 </a>
@@ -52,7 +53,7 @@
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Delete the @book.Name</h5>
+                                <h5 class="modal-title" id="exampleModalLabel">@book.Title</h5>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">

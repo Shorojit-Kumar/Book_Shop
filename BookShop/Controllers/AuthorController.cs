@@ -35,8 +35,12 @@ namespace BookShop.Controllers
                 try
                 {
                     var filePath = Path.Combine("wwwroot/images", originalpath);
-                    var stream = new FileStream(filePath, FileMode.Create);
-                    await ImageFile.CopyToAsync(stream);
+                    using (var stream = new FileStream(filePath, FileMode.Create))
+                    {
+                        await ImageFile.CopyToAsync(stream);
+                    }
+                        
+                    author.CreatedAt = DateTime.Now;
                     _db.Add(author);
                     _db.SaveChanges();
                 }
@@ -141,6 +145,7 @@ namespace BookShop.Controllers
                         
                     }
                 }
+                
                 _db.Authors.Update(author);
                 _db.SaveChanges();
                 return RedirectToAction("Show");

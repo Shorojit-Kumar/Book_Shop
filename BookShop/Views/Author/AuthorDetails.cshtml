@@ -30,6 +30,15 @@
                     <div class="col-8 ">@ViewBag.author.Address</div>
                 </div>
             </div>
+            <div class="card-footer">
+
+                <a class="btn btn-sm btn-info" href="@Url.Action("Edit", "Author")?id=@ViewBag.author.Id">
+                    Edit
+                </a>
+                <a class="btn btn-sm btn-danger" href="@Url.Action("Delete", "Author")?id=@ViewBag.author.Id">
+                    Delete
+                </a>
+            </div>
          </div>
 
     </div>
@@ -40,15 +49,16 @@
             @foreach (var book in ViewBag.author.BookList)
             {
 
-                <div class="card m-2" style="width: 18rem;">
+                <div class="card m-2 w-50" style="width: 18rem;">
                     <img src="@book.BookImageUrl" class="card-img-top" alt="...">
                     <div class="card-body">
-                        <h5 class="card-title">@book.Name</h5>
-                        <p class="card-text">@book.Title</p>
+                        <h5 class="card-title">@book.Title</h5>
+                        <p class="card-text">@book.Description</p>
+                        <p class="card-text">@book.PublishedAt</p>
                     </div>
                     <div class="card-body">
                         <a class="btn btn-primary" href="@Url.Action("BookDetails", "Book")?id=@book.Id">
-                            <i class="bi bi-plus-circle"></i> Details
+                            Details
                         </a>
                     </div>
                 </div>

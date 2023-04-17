@@ -16,5 +16,8 @@ namespace BookShop.Models
         public string? Address { get; set; }
         public string AuthorImageURL { get; set; } = "/images/Default.jpg";
         public List<Book>? BookList { get; set;}=new List<Book>();
+        
+        public DateTime? CreatedAt { get; set; } = default(DateTime?);
+        public DateTime? UpdatedAt { get; set; } =  DateTime.Now;
     }
 }
